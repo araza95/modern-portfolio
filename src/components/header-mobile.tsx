@@ -32,13 +32,15 @@ const HeaderMobile: FC = () => {
       <motion.nav
         initial={false}
         animate={isOpen ? 'open' : 'closed'}
-        className={`w-full lg:hidden ${!isOpen ? 'h-[5dvh] pointer-events-none' : 'fixed inset-0 z-50  h-screen'}`}
+        className={` lg:hidden z-[100] top-5 ${!isOpen ? 'my-10 w-[72dvw] md:w-full mx-auto lg:m-[unset] bg-slate-400 sticky h-[5dvh] pointer-events-none' : 'w-full fixed inset-0 z-50  h-screen'}`}
         ref={containerRef}
       >
-        <motion.div
-          className='absolute inset-0 right-0 w-dvw bg-white'
-          variants={sidebarMotionVariants}
-        />
+        {isOpen ? (
+          <motion.div
+            className='absolute inset-0 right-0 w-dvw bg-white'
+            variants={sidebarMotionVariants}
+          />
+        ) : null}
 
         <motion.ul
           variants={sidebarMenuFramerVariant}
@@ -68,8 +70,11 @@ const HeaderMobile: FC = () => {
             );
           })}
         </motion.ul>
-        {/* @ts-ignore */}
-        <MenuToggle toggle={toggleOpen} />
+
+        <MenuToggle
+          toggle={toggleOpen as any}
+          isOpen={isOpen}
+        />
       </motion.nav>
     </Fragment>
   );
@@ -87,12 +92,14 @@ const Path = (props: any) => (
 
 const MenuToggle = ({
   toggle,
+  isOpen,
 }: {
   toggle: MouseEventHandler<HTMLButtonElement>;
+  isOpen: boolean;
 }) => (
   <button
     onClick={toggle}
-    className='pointer-events-auto absolute right-4 top-[14px] z-30'
+    className={`pointer-events-auto absolute ${isOpen ? 'right-4' : 'right-4 md:right-0'}  top-[14px] z-30`}
   >
     <svg
       width='23'

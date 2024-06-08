@@ -21,7 +21,7 @@ const RightSideNav: FC<IRightSideNavProps> = ({ className }) => {
       <div
         className={cn(
           className,
-          'lg:w-[8dvw] h-screen fixed right-0 border-r border-zinc-200 bg-white hidden lg:flex',
+          'lg:w-[8dvw] h-screen fixed right-0 border-none border-zinc-200 bg-white hidden lg:flex',
         )}
       >
         <div className='flex flex-col space-y-6 w-full'>

@@ -45,7 +45,11 @@ export default function RootLayout({
         >
           <div className='flex'>
             <LeftSideNav />
-            <main className={cn('lg:w-[72dvw] w-[100dvw]')}>
+            <main
+              className={cn(
+                'lg:w-[72dvw] md:w-[78dvw] w-[100dvw] lg:m-[unset] m-auto',
+              )}
+            >
               <MarginWidthWrapper>
                 <HeaderMobile />
                 <PageWrapper>{children}</PageWrapper>

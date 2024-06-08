@@ -26,7 +26,7 @@ const LeftSideNav: FC<ILeftSideNavProps> = ({ className }) => {
       <div
         className={cn(
           className,
-          'lg:w-[20dvw]  h-screen left-0 border-r border-zinc-200 hidden lg:flex',
+          'lg:w-[20dvw] h-screen left-0 border-zinc-200 hidden lg:flex',
         )}
       >
         <div className='flex flex-col space-y-6 w-full'>
