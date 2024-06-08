@@ -6,9 +6,13 @@ import { FC, Fragment, MouseEventHandler, ReactNode, useRef } from 'react';
 // Next JS Imports
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Constants Imports
 import { SIDE_NAV_ITEMS } from '@/constants';
+
+// Component Imports
+import { ThemeToggle } from './theme-toggle';
 
 // External package imports
 import { motion, useCycle } from 'framer-motion';
@@ -32,7 +36,7 @@ const HeaderMobile: FC = () => {
       <motion.nav
         initial={false}
         animate={isOpen ? 'open' : 'closed'}
-        className={` lg:hidden z-[100] top-5 ${!isOpen ? 'my-10 w-[72dvw] md:w-full mx-auto lg:m-[unset] bg-slate-400 sticky h-[5dvh] pointer-events-none' : 'w-full fixed inset-0 z-50  h-screen'}`}
+        className={`bg-white lg:hidden z-[100]  ${!isOpen ? 'top-5 shadow-md rounded-2xl flex items-center justify-between my-10 w-[78dvw] md:w-full mx-auto lg:m-[unset] sticky h-[7dvh] pointer-events-none' : 'pt-10 w-full fixed inset-0 z-50  h-screen'}`}
         ref={containerRef}
       >
         {isOpen ? (
@@ -97,37 +101,54 @@ const MenuToggle = ({
   toggle: MouseEventHandler<HTMLButtonElement>;
   isOpen: boolean;
 }) => (
-  <button
-    onClick={toggle}
-    className={`pointer-events-auto absolute ${isOpen ? 'right-4' : 'right-4 md:right-0'}  top-[14px] z-30`}
+  <div
+    className={`flex items-center justify-between pointer-events-auto absolute ${isOpen ? 'right-4' : ' w-full px-4'}  z-30`}
   >
-    <svg
-      width='23'
-      height='23'
-      viewBox='0 0 23 23'
-    >
-      <Path
-        variants={{
-          closed: { d: 'M 2 2.5 L 20 2.5' },
-          open: { d: 'M 3 16.5 L 17 2.5' },
-        }}
+    {!isOpen ? (
+      <Image
+        src='/assets/avatar.png'
+        width={50}
+        height={50}
+        alt='Avatar'
+        className='bg-slate-500 rounded-full h-[50px] w-[50px] object-contain'
       />
-      <Path
-        d='M 2 9.423 L 20 9.423'
-        variants={{
-          closed: { opacity: 1 },
-          open: { opacity: 0 },
-        }}
-        transition={{ duration: 0.1 }}
-      />
-      <Path
-        variants={{
-          closed: { d: 'M 2 16.346 L 20 16.346' },
-          open: { d: 'M 3 2.5 L 17 16.346' },
-        }}
-      />
-    </svg>
-  </button>
+    ) : null}
+    <div className='flex items-center'>
+      {isOpen ? null : <ThemeToggle />}
+
+      <button
+        onClick={toggle}
+        className='ml-5'
+      >
+        <svg
+          width='23'
+          height='23'
+          viewBox='0 0 23 23'
+        >
+          <Path
+            variants={{
+              closed: { d: 'M 2 2.5 L 20 2.5' },
+              open: { d: 'M 3 16.5 L 17 2.5' },
+            }}
+          />
+          <Path
+            d='M 2 9.423 L 20 9.423'
+            variants={{
+              closed: { opacity: 1 },
+              open: { opacity: 0 },
+            }}
+            transition={{ duration: 0.1 }}
+          />
+          <Path
+            variants={{
+              closed: { d: 'M 2 16.346 L 20 16.346' },
+              open: { d: 'M 3 2.5 L 17 16.346' },
+            }}
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
 );
 
 const MenuItem = ({

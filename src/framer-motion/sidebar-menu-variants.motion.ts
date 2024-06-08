@@ -2,9 +2,6 @@ export const sidebarMenuFramerVariant = {
   open: {
     transition: { staggerChildren: 0.02, delayChildren: 0.15 },
   },
-  closed: {
-    transition: { staggerChildren: 0.01, staggerDirection: -1 },
-  },
 };
 
 export const sidebarMenuItemFramerVariants = {

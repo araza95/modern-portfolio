@@ -34,7 +34,7 @@ export default function RootLayout({
       suppressHydrationWarning={true}
     >
       <body
-        className={cn(inter.className, '')}
+        className={cn(inter.className, 'bg-[#F6F6F6]')}
         suppressHydrationWarning={true}
       >
         <ThemeProvider
