@@ -26,6 +26,8 @@ const LeftSideNav: FC<ILeftSideNavProps> = ({ className }) => {
       <div
         className={cn(
           className,
+          'bg-primary-light dark:bg-primary-dark',
+          'text-primary-dark dark:text-primary-light',
           'lg:w-[20dvw] h-screen left-0 border-zinc-200 hidden lg:flex',
         )}
       >
@@ -54,8 +56,10 @@ const MenuItem = ({ item }: { item: ISideNavItems }) => {
       <Link
         href={item.path}
         className={cn(
-          `flex flex-row space-x-4 items-center p-2 rounded-lg hover:bg-zinc-100 ${
-            item.path === pathname ? 'bg-zinc-100' : ''
+          `flex flex-row space-x-4 items-center p-2 rounded-lg ${
+            item.path === pathname
+              ? 'bg-secondary-light dark:bg-secondary-dark'
+              : ''
           }`,
         )}
       >
