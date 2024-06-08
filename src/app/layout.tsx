@@ -1,6 +1,13 @@
+// Next JS Imports
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+
+// CSS Imports
 import './globals.css';
+
+// Component Imports
+import MobileHeader from '@/components/header-mobile';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <MobileHeader />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
