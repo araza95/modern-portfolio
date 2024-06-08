@@ -3,7 +3,7 @@ export const sidebarMenuFramerVariant = {
     transition: { staggerChildren: 0.02, delayChildren: 0.15 },
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transition: { staggerChildren: 0.01, staggerDirection: -1 },
   },
 };
 
