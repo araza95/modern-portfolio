@@ -1,5 +1,4 @@
 // React Imports
-import Link from 'next/link';
 import { FC, Fragment } from 'react';
 
 interface IProjectPageProps {}
@@ -24,13 +23,11 @@ const products = [
     price: 300,
   },
 ];
-const ProjectPage: FC<IProjectPageProps> = ({}) => {
+const ProjectPage: FC<IProjectPageProps> = async ({}) => {
   return (
     <Fragment>
-      <h1>Projects</h1>
-      <Link href={'/'}>New Project</Link>
       <div
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-blue-100 p-4 rounded-md h-screen w-[70%] m-auto overflow-y-auto
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-blue-100 p-4 rounded-md 
       '
       >
         {products.map((product, idx) => (

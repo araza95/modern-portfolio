@@ -8,6 +8,13 @@ import './globals.css';
 // Component Imports
 import HeaderMobile from '@/components/header-mobile';
 import { ThemeProvider } from '@/components/theme-provider';
+import LeftSideNav from '@/components/left-side-nav';
+import RightSideNav from '@/components/right-side-nav';
+import PageWrapper from '@/components/page-wrapper';
+import MarginWidthWrapper from '@/components/margin-width-wrapper';
+
+// Lib Imports
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,7 +34,7 @@ export default function RootLayout({
       suppressHydrationWarning={true}
     >
       <body
-        className={inter.className}
+        className={cn(inter.className, '')}
         suppressHydrationWarning={true}
       >
         <ThemeProvider
@@ -36,8 +43,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <HeaderMobile />
-          {children}
+          <div className='flex'>
+            <LeftSideNav />
+            <main className={cn('lg:w-[72dvw] w-[100dvw]')}>
+              <MarginWidthWrapper>
+                <HeaderMobile />
+                <PageWrapper>{children}</PageWrapper>
+              </MarginWidthWrapper>
+            </main>
+            <RightSideNav />
+          </div>
         </ThemeProvider>
       </body>
     </html>

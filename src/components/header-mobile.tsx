@@ -32,7 +32,7 @@ const HeaderMobile: FC = () => {
       <motion.nav
         initial={false}
         animate={isOpen ? 'open' : 'closed'}
-        className={`fixed inset-0 z-50 w-dvw md:hidden ${isOpen ? '' : 'pointer-events-none'}`}
+        className={`w-full lg:hidden ${!isOpen ? 'h-[5dvh] pointer-events-none' : 'fixed inset-0 z-50  h-screen'}`}
         ref={containerRef}
       >
         <motion.div
