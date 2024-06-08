@@ -4,11 +4,10 @@ import { FaGraduationCap } from 'react-icons/fa';
 import { RiContactsBookFill } from 'react-icons/ri';
 import { FiHome } from 'react-icons/fi';
 
-export const SIDE_NAV_ITEMS: {
-  title: string;
-  path: string;
-  icon: JSX.Element;
-}[] = [
+// Types Imports
+import { ISideNavItems } from './types/types/index.type';
+
+export const SIDE_NAV_ITEMS: ISideNavItems[] = [
   {
     title: 'Home',
     path: '/',

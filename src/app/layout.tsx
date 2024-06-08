@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 // Component Imports
-import MobileHeader from '@/components/header-mobile';
+import HeaderMobile from '@/components/header-mobile';
 import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -22,15 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html
+      lang='en'
+      suppressHydrationWarning={true}
+    >
+      <body
+        className={inter.className}
+        suppressHydrationWarning={true}
+      >
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
-          <MobileHeader />
+          <HeaderMobile />
           {children}
         </ThemeProvider>
       </body>
