@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -31,6 +34,10 @@ const config = {
         secondary: {
           light: '#FFB400',
           dark: '#F78F42',
+        },
+        base: {
+          light: '#FFFFFF',
+          dark: '#1C1C1C',
         },
       },
       borderRadius: {

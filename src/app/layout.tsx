@@ -34,12 +34,12 @@ export default function RootLayout({
       suppressHydrationWarning={true}
     >
       <body
-        className={cn(inter.className, 'bg-[#F6F6F6]')}
+        className={cn(inter.className, 'bg-primary-light dark:bg-primary-dark')}
         suppressHydrationWarning={true}
       >
         <ThemeProvider
           attribute='class'
-          defaultTheme='system'
+          defaultTheme='dark'
           enableSystem
           disableTransitionOnChange
         >

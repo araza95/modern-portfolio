@@ -3,7 +3,7 @@
 // React Imports
 import { cn } from '@/lib/utils';
 import { FC, Fragment } from 'react';
-import { ThemeToggle } from './theme-toggle';
+import { ThemeToggle } from '../theme-toggle';
 import { SIDE_NAV_ITEMS } from '@/constants';
 import { ISideNavItems } from '@/types/types/index.type';
 import { usePathname } from 'next/navigation';
@@ -21,6 +21,10 @@ const RightSideNav: FC<IRightSideNavProps> = ({ className }) => {
       <div
         className={cn(
           className,
+          'bg-base-light dark:bg-base-dark',
+          'text-base-dark dark:text-base-light',
+          'flex justify-center',
+          'rounded-tl-xl rounded-bl-xl',
           'lg:w-[8dvw] h-screen fixed right-0 border-none border-zinc-200 bg-white hidden lg:flex',
         )}
       >
